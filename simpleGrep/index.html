@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Simple Grep</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<section id="patternSection">
+			<label for="pattern">Patern</label>
+			<input id="pattern" type="text" size="77" />
+		</section>
+		<section id="pathSection">
+			<label for="path">Path</label>
+			<input id="path" type="text" size="79"/>
+		</section>
+		<section class="checkboxes">
+			<input type="checkbox" id="caseInsensitive" name="caseInsensitive">
+			<label for="caseInsensitive">Case Insensitive</label>
+			<input type="checkbox" id="wholeWord" name="wholeWord">
+			<label for="wholeWord">Whole Word</label>
+			<input type="checkbox" id="wholeLine" name="wholeLine">
+			<label for="wholeLine">Whole Line</label>
+			<input type="checkbox" id="filenameOnly" name="filenameOnly">
+			<label for="filenameOnly">Filename Only</label>	
+			<input type="checkbox" id="inverted" name="inverted">
+			<label for="inverted">Files w/o Matches</label>
+		</section>
+		<section id="buttons">
+			<button onclick="selectFolder()">Select Folder</button>
+			<button onclick="selectFile()">Select File</button>
+			<button onclick="callSearch()">Search</button>
+			<label id="statusLbl"></label>
+		</section>
+
+		<textarea class="textarea" id="text_box"></textarea>
+
+		<script src="script.js"></script>
+
+	</body>
+</html>

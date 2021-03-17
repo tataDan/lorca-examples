@@ -1,0 +1,39 @@
+.textarea {
+	width: 100%;
+	height: 30em;
+    font-size: 14px;
+    tab-size: 4;		
+}
+
+label {
+    font-size: 16px;
+}
+
+input {
+    font-size: 14px;
+}
+
+#patternSection {
+    margin: 10px;
+}
+
+#pathSection {
+    margin: 10px;
+}
+
+.checkboxes {
+    text-align:center;
+   }
+
+.checkboxes input{
+    margin: 0px 0px 0px 0px;
+}
+
+.checkboxes label{
+    margin: 0px 20px 0px 3px;
+}
+
+#buttons {
+    margin: 10px;
+    font-size: 16px;    
+}

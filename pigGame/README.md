@@ -1,0 +1,6 @@
+The purpose of the pigGame example application is to illustrate how simple it can be to convert an existing web application into a desktop application (at least in certain circumstances).
+
+Except for main.go, all the code in the pigGame application is from "https://github.com/jonasschmedtmann/complete-javascript-course/tree/master/07-Pig-Game/final". The author of that code offers a highly-rated Javascript course at "https://www.udemy.com/course/the-complete-javascript-course/" and a highly-rated HTML & CSS course at "https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/".
+
+Here is a rough description as to how the game works. There are two players, Player 1 and Player 2. At the start Player 1 is the active player as indicated by the lighter background color. The active player clicks on the "ROLL DICE" button. His/her current score is then incremented by the number of dots on the die if that number is between 2 and 6. If the number is one, then the player's current score is reset to zero and the players switch turns. If the active player clicks on the "HOLD" button, his/her current score is added to his/her total score (the number under "PLAYER 1" or "PLAYER 2"), and the players switch turns. The first player to reach 100 total points or more wins.
+

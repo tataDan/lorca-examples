@@ -4,8 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"log"
-	"net"
-	"net/http"
 	"os"
 	"strings"
 
@@ -24,12 +22,6 @@ func main() {
 		log.Fatal(err)
 	}
 	defer ui.Close()
-
-	ln, err := net.Listen("tcp", "127.0.0.1:0")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer ln.Close()
 
 	countries := make([]country, 0, 256)
 
@@ -87,12 +79,9 @@ func main() {
 
 	curDir, err := os.Getwd()
 	if err != nil {
-		log.Println(err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
-	go http.Serve(ln, http.FileServer(http.Dir(curDir)))
-
-	ui.Load(fmt.Sprintf("http://%s", ln.Addr()))
+	ui.Load("file:///" + curDir + string(os.PathSeparator) + "index.html")
 
 	<-ui.Done()
 }

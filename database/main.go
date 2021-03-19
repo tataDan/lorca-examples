@@ -7,8 +7,6 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	"net"
-	"net/http"
 	"os"
 	"strings"
 
@@ -29,14 +27,9 @@ func main() {
 	}
 	defer ui.Close()
 
-	ln, err := net.Listen("tcp", "127.0.0.1:0")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer ln.Close()
-
 	var db *sql.DB
 	var dbErr error
+
 	ui.Bind("connect", func(password string) {
 		cs := fmt.Sprintf("root:%s@tcp(127.0.0.1:3306)/nation", password)
 		db, dbErr = sql.Open("mysql", cs)
@@ -87,12 +80,9 @@ func main() {
 
 	curDir, err := os.Getwd()
 	if err != nil {
-		log.Println(err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
-	go http.Serve(ln, http.FileServer(http.Dir(curDir)))
-
-	ui.Load(fmt.Sprintf("http://%s", ln.Addr()))
+	ui.Load("file:///" + curDir + string(os.PathSeparator) + "index.html")
 
 	<-ui.Done()
 }
